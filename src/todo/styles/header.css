@@ -1,0 +1,9 @@
+.header {
+  min-height: 45px;
+  width: 100%;
+  background-color: pink;
+}
+.header__title {
+  text-align: center;
+  font-style: italic;
+}
