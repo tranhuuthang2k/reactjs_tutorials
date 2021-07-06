@@ -12,19 +12,21 @@ const PopularMovies = () => {
   const [results, setResults] = React.useState(1);
   const [totalPage, setTotalPage] = React.useState(1);
 
-  const getDataApi = async () => {
-    setLoading(true);
-    const data = await api.getDataMovies(page);
-    if (!helper.isEmptyObject(data)) {
-      if (data.hasOwnProperty("results")) {
-        setDataFilm(data.results);
-        setResults(data.total_results);
-        setTotalPage(data.total_pages);
+  React.useEffect(() => {
+    const getDataApi = async () => {
+      setLoading(true);
+      const data = await api.getDataMovies(page);
+      if (!helper.isEmptyObject(data)) {
+        if (data.hasOwnProperty("results")) {
+          setDataFilm(data.results);
+          setResults(data.total_results);
+          setTotalPage(data.total_pages);
+        }
       }
-    }
-    setLoading(false);
-  };
-  React.useEffect(() => getDataApi(), [page]);
+      setLoading(false);
+    };
+    getDataApi();
+  }, [page]);
   const getDataByPage = (p) => {
     if (p >= 1 && p <= totalPage) {
       setPage(p);
