@@ -1,41 +1,72 @@
-import React from "react";
-import { helper } from "../helpers/common";
+import React from 'react';
+import { Table, Skeleton } from 'antd';
+import NumberFormat from 'react-number-format';
+import { helper } from '../helpers/common';
+import CoronaContext from '../context/index';
 
-const Countries = ({ error, data }) => {
-  if (helper.isEmptyObject(data)) {
-    // co loi
-    return <h1 style={{ color: "red" }}> {error.mess} </h1>;
+const columns = [
+  {
+    title: 'Country',
+    dataIndex: 'Country',
+    key: 'Country',
+  },
+  {
+    title: 'Country Code',
+    dataIndex: 'CountryCode',
+    key: 'CountryCode',
+  },
+  {
+    title: 'New Confirmed',
+    dataIndex: 'NewConfirmed',
+    key: 'NewConfirmed',
+    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true} />,
+  },
+  {
+    title: 'Total Confirmed',
+    dataIndex: 'TotalConfirmed',
+    key: 'TotalConfirmed',
+    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true} />,
+  },
+  {
+    title: 'New Deaths',
+    dataIndex: 'NewDeaths',
+    key: 'NewDeaths',
+    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true} />,
+  },
+  {
+    title: 'Total Deaths',
+    dataIndex: 'TotalDeaths',
+    key: 'TotalDeaths',
+    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true} />,
+  },
+  {
+    title: 'New Recovered',
+    dataIndex: 'NewRecovered',
+    key: 'NewRecovered',
+    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true} />,
+  },
+  {
+    title: 'Total Recovered',
+    dataIndex: 'TotalRecovered',
+    key: 'TotalRecovered',
+    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true} />,
   }
+];
+
+const CountriesCorona = () => {
 
   return (
-    <table width="100%" border="1" cellSpacing="0" cellPadding="0">
-      <thead>
-        <tr>
-          <th>Country</th>
-          <th>Country Code</th>
-          <th>New Confirmed</th>
-          <th>Total Confirmed</th>
-          <th>New Deaths</th>
-          <th>Total Deaths</th>
-          <th>New Recovered</th>
-          <th>Total Recovered</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.Countries.map((item) => (
-          <tr key={item.ID}>
-            <td>{item.Country}</td>
-            <td>{item.CountryCode}</td>
-            <td>{item.NewConfirmed}</td>
-            <td>{item.TotalConfirmed}</td>
-            <td>{item.NewDeaths}</td>
-            <td>{item.TotalDeaths}</td>
-            <td>{item.NewRecovered}</td>
-            <td>{item.TotalRecovered}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default React.memo(Countries);
+    <CoronaContext.Consumer>
+      {context => {
+        if(context.loading || helper.isEmptyObject(context.virus)){
+          return <Skeleton active />
+        } else {
+          return (
+            <Table rowKey="CountryCode" style={{ marginTop: '20px' }} dataSource={context.virus.Countries} columns={columns} />
+        )}
+      }}
+    </CoronaContext.Consumer>
+    
+  )
+}
+export default React.memo(CountriesCorona);

@@ -1,18 +1,22 @@
-import React, { Component } from "react";
-import CardTheme from "./components/Card";
-import SwitchTheme from "./components//Switch";
+import React from 'react';
+import CardTheme from './components/Card';
+import SwitchTheme from './components/Switch';
+import ThemProvider from './context/ThemeProvider';
 import "./theme.css";
-import ThemeProvider from "./context/ThemeProvider";
-export default class App extends Component {
+
+class AppTheme extends React.Component {
+
   render() {
-    return (
-      <ThemeProvider>
+    return(
+      <ThemProvider>
         <div className="App">
-          <h1>Theme Switch</h1>
-          <CardTheme />
-          <SwitchTheme />
+          <h1> React Context api</h1>
+          <h2>Theme switch</h2>
+          <CardTheme/>
+          <SwitchTheme/>
         </div>
-      </ThemeProvider>
-    );
+      </ThemProvider>
+    )
   }
 }
+export default AppTheme;

@@ -1,56 +1,77 @@
-import jwt from "jsonwebtoken";
-const KEY_TOKEN = "REACT_JS";
+import jwt from 'jsonwebtoken';
+
+const SERECT_KEY_TOKEN = 'reactJS-2105';
 
 function isEmptyObject(obj) {
-  for (let prop in obj) {
-    //hasOwnProperty kiểm tra object có tồn tại key k
-    if (obj.hasOwnProperty(prop)) {
+  for(let prop in obj) {
+    //hasOwnProperty: kiem tra trong object co ton key ko ???
+    if(obj.hasOwnProperty(prop)) {
       return false;
     }
   }
 
   return JSON.stringify(obj) === JSON.stringify({});
+  // return true : object rong
 }
-function saveTokenToLocalStorage(token) {
-  if (token !== null && token !== "") {
-    localStorage.setItem("Token_Login", token);
+
+
+// save token localStorage
+function saveTokenLocalStorage(token) {
+  if(token !== null && token !== ''){
+    window.localStorage.setItem('token_login', token);
   }
 }
-function removeToken(token) {
-  localStorage.removeItem("Token_Login", token);
-  window.location.href = "/";
+
+// remove token localStorage
+function removeToken() {
+  window.localStorage.removeItem('token_login');
 }
-function getTokenLocalStorage() {
-  let token = localStorage.getItem("Token_Login");
+
+// get token
+function getTokenStorage() {
+  let token = window.localStorage.getItem('token_login');
   return token;
 }
+
+// giai ma token
 function decryptToken() {
-  let token_decryptToken = getTokenLocalStorage();
-  let decode = {};
-  if (token_decryptToken !== null && token_decryptToken !== "") {
-    decode = jwt.verify(token_decryptToken, KEY_TOKEN);
+  let encryptToken = getTokenStorage();
+  let decoded = {};
+  if(encryptToken !== null && encryptToken !== ''){
+    decoded = jwt.verify(encryptToken, SERECT_KEY_TOKEN);
   }
-  return decode;
+  return decoded;
 }
-function getEmail() {
-  let infoUser = decryptToken();
-  if (infoUser.hasOwnProperty("id")) {
+
+// get email login
+function getEmailUser() {
+  const infoUser = decryptToken();
+  if(infoUser.hasOwnProperty('email')){
     return infoUser.email;
   }
   return null;
 }
+function getIdUser(){
+  const infoUser = decryptToken();
+  if(infoUser.hasOwnProperty('id')){
+    return parseInt(infoUser.id);
+  }
+  return 0;
+}
+
 function fakeAuthLogin() {
-  let user_id = getEmail();
-  if (user_id !== null) {
+  let user = getEmailUser();
+  let id = getIdUser();
+  if(user !== null && id > 0){
     return true;
   }
   return false;
 }
+
 export const helper = {
   isEmptyObject,
-  saveTokenToLocalStorage,
+  saveTokenLocalStorage,
+  getEmailUser,
   removeToken,
-  getTokenLocalStorage,
-  getEmail,
   fakeAuthLogin,
-};
+}

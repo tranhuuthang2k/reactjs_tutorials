@@ -1,9 +1,15 @@
-import React from "react";
-// import ListFootball from "./components/List";
-// import FootballProvider from "./context/FootballProvider";
-import Provider from "./context/FootballProvider";
-export default class App extends React.PureComponent {
+import React from 'react';
+import ListFootball from './components/List';
+import FootballProvider from './context/FootballProvider';
+
+class Football extends React.PureComponent {
   render() {
-    return <Provider />;
+    return(
+      // share data tu FootballProvider cho cac component
+      <FootballProvider>
+        <ListFootball/>
+      </FootballProvider>
+    )
   }
 }
+export default Football;

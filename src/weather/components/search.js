@@ -1,25 +1,25 @@
-import React from "react";
-import { Row, Col, Input } from "antd";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Row, Col, Input } from 'antd';
+import PropTypes from 'prop-types';
+
 const { Search } = Input;
 
 const SearchWeather = (props) => {
   return (
-    <Row style={{ margin: 30 }}>
+    <Row style={{ margin: '30px 0px' }}>
       <Col span={12} offset={6}>
         <Search
-          placeholder="input search text"
-          enterButton="Search"
-          size="large"
+          placeholder="name of city ..."
           loading={props.loading}
-          onSearch={(val) => props.search(val)}
+          enterButton="Search"
+          onSearch={val => props.search(val)}
         />
       </Col>
     </Row>
-  );
-};
-SearchWeather.prototypes = {
+  )
+}
+SearchWeather.propTypes = {
   loading: PropTypes.bool.isRequired,
-  Search: PropTypes.func.isRequired,
-};
+  search: PropTypes.func.isRequired
+}
 export default React.memo(SearchWeather);

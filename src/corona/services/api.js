@@ -1,10 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
+
 const getDataVirusCorona = async () => {
-  const url = "https://api.covid19api.com/summary";
-  const res = await axios.get(url);
-  const result = res.status === 200 ? res.data : {};
+  const url = `https://api.covid19api.com/summary`;
+  const response = await axios.get(url);
+  const result = response.status === 200 ? response.data : {};
   return result;
-};
+}
+
 export const api = {
-  getDataVirusCorona,
-};
+  getDataVirusCorona
+}

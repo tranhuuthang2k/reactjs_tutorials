@@ -1,4 +1,4 @@
-
+/* define all colors as variables */
 /* for default light theme */
 :root {
   --border: rgba(0,0,0,.2);
@@ -11,10 +11,8 @@
   --background: #fff;
 }
 
-
-/* for default dark theme */
 /*
-:root {  
+const darkTheme = [
   --border: rgba(255,255,255,.1),
   --shadow: #000,
   --heading: rgba(255,255,5,.9),
@@ -23,7 +21,7 @@
   --textAlt: #fff,
   --inactive: rgba(255,255,255,.3),
   --background: #2D2D2D,
-}
+];
 */
 
 /* elements that change color */
