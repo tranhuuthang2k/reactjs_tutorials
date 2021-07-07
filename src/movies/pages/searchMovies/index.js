@@ -32,7 +32,7 @@ const SearchMovies = () => {
       setLoading(false);
     }
   };
-  React.useEffect(() => searchFilm(keywordSearch), [page]);
+  // React.useEffect(() => searchFilm(keywordSearch), [page]);
   const getDataByPage = (p) => {
     if (p >= 1 && p <= totalPage) {
       setPage(p);
