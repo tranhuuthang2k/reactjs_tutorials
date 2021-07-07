@@ -14,7 +14,7 @@ const HeaderMovies = () => {
   };
   return (
     <Header className="header">
-      <div className="logo" />
+      <NavLink className="logo" to="/" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
         <Menu.Item key="/popular-movie">
           <NavLink to="/popular-movie">Popular movies</NavLink>
