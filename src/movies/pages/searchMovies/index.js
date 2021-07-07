@@ -54,7 +54,11 @@ const SearchMovies = () => {
   };
   return (
     <LayoutMovies>
-      <BreadcrumbMovies item_lv1="App" item_lv2="Movies" item_lv3="Popular" />
+      <BreadcrumbMovies
+        item_lv1="App"
+        item_lv2="Movies"
+        item_lv3="search-film"
+      />
       <div className="site-layout-content">
         <Row>
           <Col span={24}>
