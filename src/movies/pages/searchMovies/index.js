@@ -14,14 +14,11 @@ const SearchMovies = () => {
   const [results, setResults] = React.useState(1);
   const [totalPage, setTotalPage] = React.useState(1);
   const [keywordSearch, setKeywordSearch] = React.useState("");
-  const searchFilm = async (keyword) => {
-    if (keyword) {
+  const searchFilm = async (keywordSearch) => {
+    if (keywordSearch) {
       setLoading(true);
-      setKeywordSearch(keyword);
-      if (keyword !== keywordSearch) {
-        setPage(1);
-      }
-      const data = await api.searchMovieByKeyword(keyword, page);
+      setKeywordSearch(keywordSearch);
+      const data = await api.searchMovieByKeyword(keywordSearch, page);
       if (!helper.isEmptyObject(data)) {
         if (data.hasOwnProperty("results")) {
           setDataSearch(data.results);
@@ -32,7 +29,24 @@ const SearchMovies = () => {
       setLoading(false);
     }
   };
-  // React.useEffect(() => searchFilm(keywordSearch), [page]);
+  React.useEffect(() => {
+    const searchFilm = async (keywordSearch) => {
+      if (keywordSearch) {
+        setLoading(true);
+        setKeywordSearch(keywordSearch);
+        const data = await api.searchMovieByKeyword(keywordSearch, page);
+        if (!helper.isEmptyObject(data)) {
+          if (data.hasOwnProperty("results")) {
+            setDataSearch(data.results);
+            setResults(data.total_results);
+            setTotalPage(data.total_pages);
+          }
+        }
+        setLoading(false);
+      }
+    };
+    searchFilm(keywordSearch);
+  }, [keywordSearch, page]);
   const getDataByPage = (p) => {
     if (p >= 1 && p <= totalPage) {
       setPage(p);
