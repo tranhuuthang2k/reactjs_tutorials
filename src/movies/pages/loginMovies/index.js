@@ -46,15 +46,16 @@ const LoginMovies = () => {
         >
           <Form.Item
             label="Username"
+            placeholder="Select a option and change input text above"
             name="username"
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                message: "Please input your username is admin",
               },
             ]}
           >
-            <Input />
+            <Input placeholder="admin" />
           </Form.Item>
 
           <Form.Item
@@ -63,11 +64,11 @@ const LoginMovies = () => {
             rules={[
               {
                 required: true,
-                message: "Please input your password!",
+                message: "Please input your password is 123",
               },
             ]}
           >
-            <Input.Password />
+            <Input.Password placeholder="123" />
           </Form.Item>
 
           <Form.Item
