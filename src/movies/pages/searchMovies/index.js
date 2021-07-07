@@ -57,7 +57,7 @@ const SearchMovies = () => {
       <BreadcrumbMovies
         item_lv1="App"
         item_lv2="Movies"
-        item_lv3="search-film"
+        item_lv3="Search-film"
       />
       <div className="site-layout-content">
         <Row>
