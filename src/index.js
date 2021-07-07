@@ -7,11 +7,18 @@ import "antd/dist/antd.css";
 // import App from "./theme/App";
 // import App from "./hooks/app";
 import App from "./movies/routes";
-
 import reportWebVitals from "./reportWebVitals";
+const Title = () => {
+  // This effect runs once, after the first render
+  React.useEffect(() => {
+    document.title = "Review film ";
+  }, []);
 
+  return null;
+};
 ReactDOM.render(
   <>
+    <Title />
     <App />
   </>,
   document.getElementById("root")
