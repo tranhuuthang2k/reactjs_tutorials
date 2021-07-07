@@ -1,48 +1,46 @@
-
 /* for default light theme */
 :root {
-  --border: rgba(0,0,0,.2);
+  --border: rgba(0, 0, 0, 0.2);
   --shadow: #000;
-  --heading: rgba(255,100,0,1);
+  --heading: rgba(255, 100, 0, 1);
   --main: #1d8f13;
   --text: #000;
   --textAlt: #fff;
-  --inactive: rgba(0,0,0,.3);
+  --inactive: rgba(0, 0, 0, 0.3);
   --background: #fff;
 }
 
-
 /* for default dark theme */
 /*
-:root {  
-  --border: rgba(255,255,255,.1),
-  --shadow: #000,
-  --heading: rgba(255,255,5,.9),
-  --main: #79248f,
-  --text: rgb(255, 255, 255),
-  --textAlt: #fff,
-  --inactive: rgba(255,255,255,.3),
-  --background: #2D2D2D,
-}
-*/
+ :root {  
+   --border: rgba(255,255,255,.1),
+   --shadow: #000,
+   --heading: rgba(255,255,5,.9),
+   --main: #79248f,
+   --text: rgb(255, 255, 255),
+   --textAlt: #fff,
+   --inactive: rgba(255,255,255,.3),
+   --background: #2D2D2D,
+ }
+ */
 
 /* elements that change color */
-h1, 
-p { 
-  color: var(--text); 
+h1,
+p {
+  color: var(--text);
 }
 
-h2 { 
-  color: var(--heading); 
+h2 {
+  color: var(--heading);
 }
 
-.Card, 
-.Switch { 
-  border-color: var(--border); 
+.Card,
+.Switch {
+  border-color: var(--border);
 }
 
-.icon { 
-  color: var(--inactive); 
+.icon {
+  color: var(--inactive);
 }
 
 .Card button {
@@ -52,7 +50,7 @@ h2 {
 
 /* Transitons for smooth theme change */
 *:not(body) {
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 /* All other styles */
@@ -98,8 +96,8 @@ code {
 .Card .img {
   width: 100%;
   height: 200px;
-  opacity: .9;
-  background: url('https://petcdn.petvn.vn/public/hienl/ngao4.jpg') center;
+  opacity: 0.9;
+  background: url("https://petcdn.petvn.vn/public/hienl/ngao4.jpg") center;
   background-size: cover;
 }
 
@@ -117,7 +115,7 @@ code {
   align-items: center;
   box-shadow: 4px 4px 10px -3px black;
   background: none;
-  padding: 0; 
+  padding: 0;
 }
 
 .Switch .icon {

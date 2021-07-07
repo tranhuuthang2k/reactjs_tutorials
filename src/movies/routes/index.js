@@ -1,29 +1,31 @@
-import React, { lazy, Suspense } from 'react';
+import { React, lazy, Suspense } from "react";
+import { Skeleton } from "antd";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
-import { Skeleton } from 'antd';
-import { helper } from '../helpers/common';
+import { helper } from "../helpers/common";
+// import PopularMoviesPage from "../pages/popularMovies";
+// import SearchMoviesPage from "../pages/searchMovies";
+// import DetailMoviePage from "../pages/detailMovies";
 
-const PopularMoviesPage = lazy(() => import('../pages/popularMovies/index'));
-const SearchMoviesPage = lazy(() => import('../pages/searchMovies/index'));
-const DetailMoviePage = lazy(() => import('../pages/detail/index'));
-const LoginMoviePage = lazy(() => import('../pages/login/index'));
-
-function IsLoginUserMovie({ children, ...rest }) {
-  let auth = helper.fakeAuthLogin(); // biet login hay chua
+const PopularMoviesPage = lazy(() => import("../pages/popularMovies/index"));
+const SearchMoviesPage = lazy(() => import("../pages/searchMovies/index"));
+const DetailMoviePage = lazy(() => import("../pages/detailMovies/"));
+const LoginMoviePage = lazy(() => import("../pages/loginMovies"));
+function PrivateRouteLogin({ children, ...rest }) {
+  let auth = helper.fakeAuthLogin();
   return (
     <Route
       {...rest}
-      render={({location}) =>
+      render={({ location }) =>
         auth ? (
           <Redirect
             to={{
               pathname: "/",
-              state: { from: location }
+              state: { from: location },
             }}
           />
         ) : (
@@ -31,11 +33,11 @@ function IsLoginUserMovie({ children, ...rest }) {
         )
       }
     />
-  )
+  );
 }
 
-function PrivateRouteMovie({ children, ...rest }) {
-  let auth = helper.fakeAuthLogin(); // biet login hay chua
+function PrivateRouteMovies({ children, ...rest }) {
+  let auth = helper.fakeAuthLogin();
   return (
     <Route
       {...rest}
@@ -46,7 +48,7 @@ function PrivateRouteMovie({ children, ...rest }) {
           <Redirect
             to={{
               pathname: "/movie/login",
-              state: { from: location }
+              state: { from: location },
             }}
           />
         )
@@ -54,38 +56,29 @@ function PrivateRouteMovie({ children, ...rest }) {
     />
   );
 }
-
-const RouteMovie = () => {
+const RouteMovies = () => {
   return (
     <Router>
-      <Suspense fallback={<Skeleton active/>}>
+      <Suspense fallback={<Skeleton active />}>
         <Switch>
-          {/* duong dan mac dinh */}
-          <PrivateRouteMovie path="/" exact>
-            <PopularMoviesPage/>
-          </PrivateRouteMovie>
-
-          <PrivateRouteMovie path="/popular-movie">
-            <PopularMoviesPage/>
-          </PrivateRouteMovie>
-
-          <PrivateRouteMovie path="/search-movie">
-            <SearchMoviesPage/>
-          </PrivateRouteMovie>
-
-          {/* localhost:3000/movie/ngoi-nha-hanh-phuc~189723 */}
-          {/* :slug :ten prama */}
-          <PrivateRouteMovie path="/movie/:slug~:id">
-            <DetailMoviePage/>
-          </PrivateRouteMovie>
-
-          <IsLoginUserMovie path="/movie/login">
-            <LoginMoviePage/>
-          </IsLoginUserMovie>
-
+          <Route path="/" exact>
+            <PopularMoviesPage />
+          </Route>
+          <Route path="/popular-movie">
+            <PopularMoviesPage />
+          </Route>
+          <Route path="/search-movie">
+            <SearchMoviesPage />
+          </Route>
+          <PrivateRouteMovies path="/movie/:slug~:id">
+            <DetailMoviePage />
+          </PrivateRouteMovies>
+          <PrivateRouteLogin path="/movie/login">
+            <LoginMoviePage />
+          </PrivateRouteLogin>
         </Switch>
       </Suspense>
     </Router>
-  )
-}
-export default React.memo(RouteMovie);
+  );
+};
+export default RouteMovies;

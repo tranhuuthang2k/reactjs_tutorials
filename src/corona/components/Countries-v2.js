@@ -1,73 +1,129 @@
-import React, { useContext } from 'react';
-import { Row, Col, Table, Skeleton } from 'antd';
-import CoronaContext from '../context/index';
-import { helper } from '../helpers/common';
-import NumberFormat from 'react-number-format';
+import React from "react";
+import { Row, Col, Table, Skeleton, Input } from "antd";
+import { helper } from "../helpers/common";
+import NumberFormat from "react-number-format";
+import CoronaContext from "../context/index";
+const { Search } = Input;
 
 const columns = [
-  // cac dong va cot cua bang
   {
     title: "Country",
     dataIndex: "Country",
-    key: "Country"
+    key: "Country",
   },
   {
     title: "Country code",
     dataIndex: "CountryCode",
-    key: "CountryCode"
+    key: "CountryCode",
   },
   {
-    title: "New confirmed",
+    title: "New Confirmed",
     dataIndex: "NewConfirmed",
     key: "NewConfirmed",
-    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true}/>
+
+    render: (text) => (
+      <NumberFormat
+        value={text}
+        displayType={"text"}
+        thousandSeparator={true}
+      />
+    ),
   },
   {
-    title: "Total confirmed",
+    title: "Total Confirmed",
     dataIndex: "TotalConfirmed",
     key: "TotalConfirmed",
-    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true}/>
+    defaultSortOrder: "descend",
+    sorter: {
+      compare: (a, b) => a.TotalConfirmed - b.TotalConfirmed,
+    },
+
+    render: (text) => (
+      <NumberFormat
+        value={text}
+        displayType={"text"}
+        thousandSeparator={true}
+      />
+    ),
   },
   {
-    title: "New deaths",
+    title: "New Deaths",
     dataIndex: "NewDeaths",
     key: "NewDeaths",
-    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true}/>
+    render: (text) => (
+      <NumberFormat
+        value={text}
+        displayType={"text"}
+        thousandSeparator={true}
+      />
+    ),
   },
   {
-    title: "Total deaths",
+    title: "Total Deaths",
     dataIndex: "TotalDeaths",
     key: "TotalDeaths",
-    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true}/>
+    render: (text) => (
+      <NumberFormat
+        value={text}
+        displayType={"text"}
+        thousandSeparator={true}
+      />
+    ),
   },
   {
-    title: "New recovered",
+    title: "New Recovered",
     dataIndex: "NewRecovered",
     key: "NewRecovered",
-    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true}/>
+    render: (text) => (
+      <NumberFormat
+        value={text}
+        displayType={"text"}
+        thousandSeparator={true}
+      />
+    ),
   },
   {
-    title: "Total recovered",
+    title: "Total Recovered",
     dataIndex: "TotalRecovered",
     key: "TotalRecovered",
-    render: text => <NumberFormat value={text} displayType={'text'} thousandSeparator={true}/>
+    render: (text) => (
+      <NumberFormat
+        value={text}
+        displayType={"text"}
+        thousandSeparator={true}
+      />
+    ),
   },
 ];
-
 const CountriesVirus = () => {
+  const { loading, virus } = React.useContext(CoronaContext);
+  const [coronaFilter, setCoronaFilter] = React.useState(virus.Countries);
 
-  const { loading, virus } = useContext(CoronaContext);
-  // waiting load data
-  if(loading || helper.isEmptyObject(virus)) {
-    return <Skeleton active />
+  if (loading || helper.isEmptyObject(virus)) {
+    return <Skeleton active />;
   }
-
   return (
-    <Row style={{ marginTop: '20px' }}>
+    <Row>
       <Col span={24}>
-        <Table rowKey="ID" dataSource={virus.Countries} columns={columns} />
+        <Search
+          placeholder="Nhập tên quốc gia cần tìm"
+          style={{ marginTop: "10px", marginBottom: "10px" }}
+          onSearch={(val) =>
+            setCoronaFilter(
+              virus.Countries.filter((u) =>
+                u.Country.toLowerCase().includes(val.toLowerCase())
+              )
+            )
+          }
+          enterButton
+        />
+        <Table
+          rowKey="ID"
+          dataSource={coronaFilter ? coronaFilter : virus.Countries}
+          columns={columns}
+        />
       </Col>
     </Row>
-  )
-}
+  );
+};
 export default React.memo(CountriesVirus);

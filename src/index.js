@@ -1,15 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 // su dung css antd cho toan bo ung dung
-import 'antd/dist/antd.css';
-import App from './movies/App';
-import reportWebVitals from './reportWebVitals';
+import "antd/dist/antd.css";
+// import App from "./football/App.js";
+// import App from "./corona/app";
+// import App from "./theme/App";
+// import App from "./hooks/app";
+import App from "./movies/routes";
+
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

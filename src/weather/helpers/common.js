@@ -1,15 +1,13 @@
 function isEmptyObject(obj) {
-  for(let prop in obj) {
-    //hasOwnProperty: kiem tra trong object co ton key ko ???
-    if(obj.hasOwnProperty(prop)) {
+  for (let prop in obj) {
+    //hasOwnProperty kiểm tra object có tồn tại key k
+    if (obj.hasOwnProperty(prop)) {
       return false;
     }
   }
 
   return JSON.stringify(obj) === JSON.stringify({});
-  // return true : object rong
 }
-
 export const helper = {
-  isEmptyObject
-}
+  isEmptyObject,
+};

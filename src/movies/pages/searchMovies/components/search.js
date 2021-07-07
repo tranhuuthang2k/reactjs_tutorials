@@ -1,26 +1,24 @@
-import React from 'react';
-import { Input, Row, Col } from 'antd';
-import PropTypes from 'prop-types';
-
+import React from "react";
+import { Col, Row, Input } from "antd";
+import PropTypes from "prop-types";
 const { Search } = Input;
-
-const InputSearchMovie = (props) => {
+const inputSearchMovies = (props) => {
   return (
     <Row>
       <Col span={12} offset={6}>
         <Search
-          placeholder="movies name ..."
-          enterButton="Search"
+          placeholder="nhập tên phim"
+          enterButton="search"
           size="large"
           loading={props.loading}
-          onSearch={val => props.search(val)}
+          onSearch={(val) => props.search(val)}
         />
       </Col>
     </Row>
-  )
-}
-InputSearchMovie.propTypes = {
+  );
+};
+inputSearchMovies.prototype = {
   loading: PropTypes.bool,
-  search: PropTypes.func.isRequired,
-}
-export default React.memo(InputSearchMovie);
+  onSearch: PropTypes.func.isRequired,
+};
+export default React.memo(inputSearchMovies);

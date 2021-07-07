@@ -1,8 +1,6 @@
-import React from 'react';
-
-// truyen gia tri mac dinh
-const ThemeContext = React.createContext({
-  dark: false,
-  toggle: () => {}
+import React from "react";
+const ThemesContext = React.createContext({
+  dark: false, // màu trắng
+  toggle: () => {},
 });
-export default ThemeContext;
+export default React.memo(ThemesContext);

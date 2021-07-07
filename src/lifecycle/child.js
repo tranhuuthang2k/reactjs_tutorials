@@ -1,17 +1,11 @@
-import React from 'react';
+import React, { Component } from "react";
 
-class ChildComponent extends React.Component {
-
+export default class child extends Component {
   componentWillUnmount() {
-    // ham nay se tu dong chay khi component bi xoa
-    // truoc khi component bi xoa mh co the lam dieu gi do......
-    console.log('ChildComponent vua bi xoa');
+    //   trước khi component bị xóa, mình có thể làm gì đó....
+    console.log(`child component delete`);
   }
-
   render() {
-    return (
-      <h1> This is child component</h1>
-    )
+    return <div>this is child component</div>;
   }
 }
-export default ChildComponent;

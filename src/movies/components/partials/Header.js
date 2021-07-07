@@ -1,56 +1,42 @@
-import React from 'react';
-import { Layout, Menu } from 'antd';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
-import { helper } from '../../helpers/common';
+import React from "react";
+import { Layout, Menu } from "antd";
+import { NavLink } from "react-router-dom";
+import { helper } from "../../helpers/common";
+import { useHistory } from "react-router-dom";
 
 const { Header } = Layout;
 
 const HeaderMovies = () => {
-  // biet dc vi tri duong link
-  // hooks cua react router
   const history = useHistory();
-  const { pathname } = useLocation();
-  const emailUser = helper.getEmailUser();
-
-  const logoutMovie = () => {
-    helper.removeToken();
-    // quay ve trang login
-    history.push('/movie/login');
-  }
-
+  const logoutMovies = () => {
+    helper.removeToken("Token_Login");
+    history.push("/");
+  };
   return (
-    <Header>
+    <Header className="header">
       <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={pathname}>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
         <Menu.Item key="/popular-movie">
-          <NavLink to="/popular-movie">
-            Popular movies
-          </NavLink>
+          <NavLink to="/popular-movie">Popular movies</NavLink>
         </Menu.Item>
         <Menu.Item key="/search-movie">
-          <NavLink to="/search-movie">
-            Search movies
-          </NavLink> 
+          <NavLink to="/search-movie">Search movies</NavLink>
         </Menu.Item>
-        { emailUser === null 
-          &&
+        {helper.getEmail() == null && (
           <Menu.Item key="/movie/login">
-            <NavLink to="/movie/login">
-              Login
-            </NavLink> 
+            <NavLink to="/movie/login">Login</NavLink>
           </Menu.Item>
-        }
-
-        { emailUser !== null && <Menu.Item key="user"> Hi : {emailUser} </Menu.Item> }
-
-        { emailUser !== null 
-          &&
-          <Menu.Item key="logout" onClick={() => logoutMovie()}>
-            Logout
+        )}
+        {helper.getEmail() && (
+          <Menu.Item key="user">hi: {helper.getEmail()}</Menu.Item>
+        )}
+        {helper.getEmail() && (
+          <Menu.Item key="/movie/logout" onClick={() => logoutMovies()}>
+            <NavLink to="/movie/logout">Logout</NavLink>
           </Menu.Item>
-        }
+        )}
       </Menu>
     </Header>
-  )
-}
+  );
+};
 export default React.memo(HeaderMovies);
