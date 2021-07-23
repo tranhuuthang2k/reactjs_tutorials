@@ -1,9 +1,8 @@
 import React from "react";
-import { Form, Input, Button, Row, Col } from "antd";
+import { Form, Input, Button, Row, Col, Checkbox } from "antd";
 import { api } from "../../services/api";
 import { helper } from "../../helpers/common";
 import { useHistory } from "react-router-dom";
-
 const LoginMovies = () => {
   const history = useHistory();
   const [ErrorLogin, setErrorLogin] = React.useState(null);
@@ -12,6 +11,11 @@ const LoginMovies = () => {
     if (token !== null) {
       setErrorLogin(null);
       helper.saveTokenToLocalStorage(token);
+      if (values.remember) {
+        helper.savePasswordToLocal();
+      } else {
+        helper.RemovePasswordToLocal();
+      }
       history.push("/");
     } else {
       setErrorLogin("Account invalid");
@@ -21,7 +25,6 @@ const LoginMovies = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-
   return (
     <Row style={{ marginTop: 30 }}>
       <Col span={20} offset={2}>
@@ -39,7 +42,15 @@ const LoginMovies = () => {
             span: 8,
           }}
           initialValues={{
-            remember: true,
+            remember: false,
+            username:
+              helper.getPasswordLogin() !== null
+                ? helper.getPasswordLogin().user
+                : "",
+            password:
+              helper.getPasswordLogin() !== null
+                ? helper.getPasswordLogin().password
+                : "",
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -71,6 +82,16 @@ const LoginMovies = () => {
             <Input.Password placeholder="123" />
           </Form.Item>
 
+          <Form.Item
+            name="remember"
+            valuePropName="checked"
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Checkbox>Remember me</Checkbox>
+          </Form.Item>
           <Form.Item
             wrapperCol={{
               offset: 11,

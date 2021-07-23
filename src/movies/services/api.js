@@ -26,6 +26,7 @@ const checkLoginMovies = (user, password) => {
       {
         id: 1,
         user: user,
+        password: password,
         fullname: "Trần Hữu Thắng",
         address: "Đà Nẵng",
         email: "tranhuuthangcoi@gmal.com",

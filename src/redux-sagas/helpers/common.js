@@ -32,35 +32,12 @@ function decryptToken() {
   }
   return decode;
 }
-
 function getEmail() {
   let infoUser = decryptToken();
   if (infoUser.hasOwnProperty("id")) {
     return infoUser.email;
   }
   return null;
-}
-// save password to local
-function savePasswordToLocal() {
-  let infoLogin = localStorage.setItem("Status", getTokenLocalStorage());
-  return infoLogin;
-}
-
-function getPasswordToLocal() {
-  let token = localStorage.getItem("Status");
-  return token;
-}
-function RemovePasswordToLocal() {
-  localStorage.removeItem("Status");
-}
-
-function getPasswordLogin() {
-  let Token_remberPassowrd = getPasswordToLocal();
-  let decode = null;
-  if (Token_remberPassowrd !== null && Token_remberPassowrd !== "") {
-    decode = jwt.verify(Token_remberPassowrd, KEY_TOKEN);
-  }
-  return decode;
 }
 function fakeAuthLogin() {
   let user_id = getEmail();
@@ -76,7 +53,4 @@ export const helper = {
   getTokenLocalStorage,
   getEmail,
   fakeAuthLogin,
-  savePasswordToLocal,
-  getPasswordLogin,
-  RemovePasswordToLocal,
 };
