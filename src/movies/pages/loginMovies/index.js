@@ -90,7 +90,7 @@ const LoginMovies = () => {
               span: 16,
             }}
           >
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>Save Password </Checkbox>
           </Form.Item>
           <Form.Item
             wrapperCol={{
