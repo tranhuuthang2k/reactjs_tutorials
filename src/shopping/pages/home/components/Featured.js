@@ -5,6 +5,7 @@ import { Col, Row, Skeleton } from "antd";
 import { getDataProductFeautured } from "../../../reselect/reselect";
 import CardProduct from "./Card";
 import { helpers } from "../../../helpers/common";
+
 const FeatureComponent = () => {
   const { featured } = useSelector(
     createStructuredSelector({
@@ -20,7 +21,7 @@ const FeatureComponent = () => {
         <h3 style={{ textAlign: "center", fontSize: 25 }}> Featured</h3>
         <Row>
           {featured.map((item, key) => (
-            <Col span={6} key={key}>
+            <Col sm={12} md={6} key={key}>
               <CardProduct data={item} />
             </Col>
           ))}

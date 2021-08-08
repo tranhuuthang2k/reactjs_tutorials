@@ -20,7 +20,7 @@ const TopSelling = () => {
         <h3 style={{ textAlign: "center", fontSize: 25 }}> TopSelling</h3>
         <Row>
           {TopSelling.map((item, key) => (
-            <Col span={6} key={key}>
+            <Col sm={12} md={6} key={key}>
               <CardProduct data={item} />
             </Col>
           ))}

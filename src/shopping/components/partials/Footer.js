@@ -4,7 +4,7 @@ const { Footer } = Layout;
 const FooterShopping = () => {
   return (
     <Footer style={{ textAlign: "center" }}>
-      Ant Design ©2018 Created by Ant UED
+      MrKatsu ©2021 Created by MrKatsu
     </Footer>
   );
 };

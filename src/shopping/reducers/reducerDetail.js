@@ -4,7 +4,6 @@ const initState = {
   productDetail: {},
 };
 export const reducerDetail = (state = initState, action) => {
-  console.log(action);
   switch (action.type) {
     case actions.START_GET_DATA_PRODUCT:
       return {

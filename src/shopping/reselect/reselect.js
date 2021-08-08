@@ -1,6 +1,7 @@
 import { createSelector } from "reselect";
 const homeState = (state) => state.homeReducer;
 const reducerState = (state) => state.reducerDetail;
+const reducerLogin = (state) => state.reducerLogin;
 
 export const getLoadingProduct = createSelector(
   homeState,
@@ -44,3 +45,9 @@ export const getDataProductDetail = createSelector(
   reducerState,
   (item) => item.productDetail
 );
+// login
+export const loginFailMessage = createSelector(reducerLogin, (item) => {
+  if (item.error.cod) {
+    return "acount invalid";
+  }
+});

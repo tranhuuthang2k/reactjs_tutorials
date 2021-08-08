@@ -20,3 +20,13 @@ export const STOP_GET_DATA_PRODUCT_BY_ID = Symbol(
 export const NOT_FOUND_DATA_PRODUCT_BY_ID = Symbol(
   "NOT_FOUND_DATA_PRODUCT_BY_ID"
 );
+// Shopping cart
+export const INCREMENT_CART = Symbol("INCREMENT_CART");
+export const DECREMENT_CART = Symbol("DECREMENT_CART");
+export const REMOVE_CART = Symbol("REMOVE_CART");
+export const CHANGE_QUANTITY_CART = Symbol("CHANGE_QUANTITY_CART");
+
+// Login
+export const LOGIN_REQUEST = Symbol("LOGIN_REQUEST");
+export const START_STATUS_LOGIN = Symbol("START_STATUS_LOGIN");
+export const LOGIN_FAIL = Symbol("LOGIN_FAIL");

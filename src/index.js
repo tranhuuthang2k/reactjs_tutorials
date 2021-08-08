@@ -6,11 +6,11 @@ import "antd/dist/antd.css";
 // import App from "./corona/app";
 // import App from "./theme/App";
 // import App from "./hooks/app";
-import App from "./movies/routes";
+// import App from "./movies/routes";
 // import App from "./redux/index";
 // import App from "./redux-sagas/index";
 
-// import App from "./shopping";
+import App from "./shopping";
 // import App from "./components";
 import reportWebVitals from "./reportWebVitals";
 const Title = () => {

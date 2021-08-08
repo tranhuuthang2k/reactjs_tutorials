@@ -49,3 +49,41 @@ export const stopGetProductById = (stop) => ({
   type: types.STOP_GET_DATA_PRODUCT_BY_ID,
   stop,
 });
+
+// SHOPPING CART
+
+export const incrementCartAction = (number, data) => ({
+  type: types.INCREMENT_CART,
+  number: number,
+  data: data,
+});
+export const decrementCartAction = () => ({
+  type: types.DECREMENT_CART,
+});
+
+export const changeQuantityCartAction = (quantity, productId) => ({
+  type: types.CHANGE_QUANTITY_CART,
+  quantity: quantity,
+  productId: productId,
+});
+export const removetCartAction = (productId, quantity) => ({
+  type: types.REMOVE_CART,
+  productId: productId,
+});
+
+// LOGIN
+export const loginRequestAction = (email, password) => ({
+  type: types.LOGIN_REQUEST,
+  email: email,
+  password: password,
+});
+
+export const startStatusLoginAction = (loading) => ({
+  type: types.START_STATUS_LOGIN,
+  loading: loading,
+});
+
+export const loginFail = (error) => ({
+  type: types.LOGIN_FAIL,
+  error: error,
+});
