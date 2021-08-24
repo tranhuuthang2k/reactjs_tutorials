@@ -1,0 +1,166 @@
+.container_product {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+  overflow: hidden;
+}
+.Image {
+  margin-top: 20px;
+}
+h3 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+.container_product:hover .Image {
+  transform: scale(1.2);
+}
+.container_product:hover .backgroud_hidden {
+  transform: scale(1.2);
+}
+
+.description_product h3 {
+  font-size: 18px;
+  padding-top: 20px;
+}
+.description_product {
+  /* text-align: center; */
+  /* position: relative;
+  display: flex;
+  flex-direction: column; */
+  position: absolute;
+  z-index: 12;
+  position: relative;
+  text-align: center;
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  padding-bottom: 20px;
+}
+
+.backgroud_hidden {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(238 238 238 / 73%);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.container_product:hover .backgroud_hidden {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(255, 255, 21, 0.75); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-image: url("https://i.imgur.com/N2OCmSF.png");
+  opacity: 1;
+}
+.Price {
+  position: absolute;
+  top: -30px;
+  right: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.4s ease-in-out;
+
+  /* opacity: 0; */
+}
+.container_product:hover .Price {
+  /* position: absolute; */
+  top: 20px;
+  display: inline-block;
+  /* opacity: 1; */
+}
+
+.Price small {
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: top;
+}
+.container_image_header {
+  width: 100%;
+  height: 100%;
+}
+.heading_text_center {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.heading_text_center span {
+  display: inline-block;
+  width: 30%;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #666666;
+  font-family: "Playfair Display", serif;
+}
+.image_header_shoppingcart {
+  width: 100%;
+  height: 608px;
+  min-height: 610px;
+}
+h6 {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+}
+.Shopping_cart {
+  margin-top: 99px;
+}
+.border_bottom {
+  width: 1141px;
+  margin-top: 23px;
+  border-bottom: 1px solid #d1d5db;
+}
+.Shopping_cart h5 {
+  letter-spacing: 2px;
+  color: #2d3a4b;
+  margin-bottom: 0px;
+}
+.Shopping_cart .price {
+  font-size: 18px;
+  font-weight: bold;
+
+  color: #2d3a4b;
+}
+.Shopping_cart .price small {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 12px;
+}
+.Shopping_cart .item_menu {
+  font-size: 12px;
+  color: #2d3a4b;
+}
+/* #mySelect {
+  cursor: pointer;
+  transition: 5s ease-in-out;
+}
+#mySelect:hover {
+  background-color: yellow;
+} */
+.menu_qty {
+  cursor: pointer;
+  transition: 1.2s ease;
+}
+.menu_qty:hover {
+  background-color: yellow;
+}

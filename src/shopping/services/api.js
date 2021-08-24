@@ -3,37 +3,37 @@ let getDataProducts = {
     {
       id: 13,
       cate_id: 2,
-
-      name: "Samsung Galaxy Note 20 Ultra",
+      name: "ALASKA NÂU ĐỰC ĐẸP TRAI",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/220522/samsung-galaxy-note-20-ultra-5g-051920-101934-600x600.jpg",
+        "https://matpetfamily.com/wp-content/uploads/2021/02/141761959_1886256061522469_7166974700884504968_o-270x270.jpg",
       price: 24900000,
+      imageList: [
+        "https://matpetfamily.com/wp-content/uploads/2019/12/72835561_1437995923015154_7605397220103290880_n-270x270.jpg",
+        "https://matpetfamily.com/wp-content/uploads/2020/05/95168083_1619595481521863_3931317646317846528_o-270x270.jpg",
+      ],
     },
     {
       id: 14,
       cate_id: 2,
-
-      name: "Hiệp Thượng Titus",
+      name: "HUSKY ĐẠI NGÁO Ú NU",
       image:
-        "https://scontent.fdad1-1.fna.fbcdn.net/v/t1.6435-9/138868821_1123177304770412_8724416522531310592_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=174925&_nc_ohc=4Fvh2jNFVKUAX90_Oik&tn=vSIFBNf4xqZxRtEG&_nc_ht=scontent.fdad1-1.fna&oh=85ec5f845d1a34f70e161759ab5e2eb7&oe=61279FFD",
-      price: 27900000,
+        "https://matpetfamily.com/wp-content/uploads/2019/12/72835561_1437995923015154_7605397220103290880_n-270x270.jpg",
+      price: 950000,
     },
     {
       id: 15,
       cate_id: 2,
-      name: "Samsung Galaxy S20+",
-
+      name: "HUSKY SIÊU CUTE",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/217936/samsung-galaxy-s20-plus-600x600-fix-600x600.jpg",
-      price: 18900000,
+        "https://matpetfamily.com/wp-content/uploads/2020/05/95168083_1619595481521863_3931317646317846528_o-270x270.jpg",
+      price: 12000000,
     },
     {
       id: 16,
       cate_id: 2,
-
-      name: "Samsung Galaxy Note 10+",
+      name: "ALASKA HỒNG PHẤN",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/206176/TimerThumb/samsung-galaxy-note-10-plus-(22).jpg",
+        "https://matpetfamily.com/wp-content/uploads/2019/12/58380293_1288041901343891_3760072627301908480_o_1536x2048-270x270.jpg",
       price: 15290000,
     },
   ],
@@ -41,76 +41,68 @@ let getDataProducts = {
     {
       id: 21,
       cate_id: 3,
-      name: "OPPO Reno4",
-
+      name: "SAM Ú",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/222596/oppo-reno4-275620-035629-600x600.jpg",
-      price: 7210000,
+        "https://matpetfamily.com/wp-content/uploads/2021/08/02AE5D02-7F68-4F40-9852-F59485DA2878-270x270.jpeg",
+      price: 13000000,
     },
     {
       id: 22,
-      cate_id: 3,
-
-      name: "OPPO Find X2",
+      cate_id: 4,
+      name: "GOLDEN VÀNG XINH",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/198150/oppo-find-x2-blue-600x600-600x600.jpg",
-      price: 19900000,
+        "https://matpetfamily.com/wp-content/uploads/2021/08/C9337040-7567-4A71-A7B1-9253A9B97B49-270x270.jpeg",
+      price: 12000000,
     },
     {
       id: 23,
-      cate_id: 3,
-
-      name: "OPPO Reno3 Pro",
+      cate_id: 4,
+      name: "SAMOYED TRẮNG",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/216172/oppo-reno3-pro-den-600x600-200x200.jpg",
-      price: 8490000,
+        "https://matpetfamily.com/wp-content/uploads/2021/08/E108C762-8859-4BFC-A960-158AA0244009-270x270.jpeg",
+      price: 12000000,
     },
     {
       id: 24,
       cate_id: 3,
-
-      name: "OPPO Reno4 Pro",
+      name: "BÉ MẬP",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/223497/oppo-reno4-pro-274720-034747-600x600.jpg",
-      price: 10190000,
+        "https://matpetfamily.com/wp-content/uploads/2021/08/825FAE74-BC64-4E7F-A9A1-CF6E6C8DBBAC-270x270.jpeg",
+      price: 15000000,
     },
   ],
   top_selling: [
     {
       id: 1,
       cate_id: 1,
-
-      name: "iPhone 11 64GB",
+      name: "CORGI",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/153856/iphone-11-red-600x600.jpg",
-      price: 20990000,
+        "https://matpetfamily.com/wp-content/uploads/2020/06/104880540_1680368778777866_4728987718140571475_o-270x270.jpg",
+      price: 25000000,
     },
     {
       id: 2,
       cate_id: 1,
-
-      name: "iPhone 11 Pro Max 512GB",
+      name: "CORGI Ú NU SIÊU XINH",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/210654/iphone-11-pro-max-512gb-gold-600x600.jpg",
-      price: 41990000,
+        "https://matpetfamily.com/wp-content/uploads/2019/12/75462468_1446520615496018_4012590135639015424_n201-270x270.jpg",
+      price: 123000000,
     },
     {
       id: 3,
       cate_id: 1,
-
-      name: "iPhone 11 Pro Max 256GB",
+      name: "Corgi quấn tai siêu xinh",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/210653/iphone-11-pro-max-256gb-black-600x600.jpg",
-      price: 37990000,
+        "https://matpetfamily.com/wp-content/uploads/2020/12/125294770_1830620010419408_604014806922630964_o-1-270x270.jpg",
+      price: 13000000,
     },
     {
       id: 4,
       cate_id: 1,
-      name: "iPhone 11 Pro 256GB",
-
+      name: "2 BÉ CORGI MAX CUTE",
       image:
-        "https://cdn.tgdd.vn/Products/Images/42/210655/iphone-11-pro-256gb-black-600x600.jpg",
-      price: 34990000,
+        "https://matpetfamily.com/wp-content/uploads/2020/12/131975744_1857499307731478_1840493530693442423_o-270x270.jpg",
+      price: 7000000,
     },
   ],
 };

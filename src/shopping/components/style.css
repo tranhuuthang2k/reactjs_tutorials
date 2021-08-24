@@ -14,3 +14,49 @@
 .site-layout-background {
   background: #fff;
 }
+.container_header {
+  height: 80px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid white;
+  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+.container_header_logo {
+  width: 1176px;
+  height: 131px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+}
+.menu_icon {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.menu_icon ul {
+  display: flex;
+  margin: 0;
+}
+.menu_icon ul li {
+  padding-right: 39px;
+  font-size: 14px;
+  cursor: pointer;
+  list-style: none;
+  color: #2d2b05;
+}
+.icon {
+  display: flex;
+}
+.icon .icon_item {
+  margin-right: 20px;
+  cursor: pointer;
+  color: black;
+  display: flex;
+}

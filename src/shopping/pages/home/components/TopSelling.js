@@ -15,9 +15,9 @@ const TopSelling = () => {
     return <Skeleton active />;
   }
   return (
-    <Row style={{ margin: "30px 0px" }}>
+    <Row style={{ margin: "10px 0px" }}>
       <Col span={24}>
-        <h3 style={{ textAlign: "center", fontSize: 25 }}> TopSelling</h3>
+        <h3 style={{ textAlign: "center", fontSize: 25 }}> CORGI</h3>
         <Row>
           {TopSelling.map((item, key) => (
             <Col sm={12} md={6} key={key}>
