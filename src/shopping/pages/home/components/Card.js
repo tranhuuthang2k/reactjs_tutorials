@@ -36,7 +36,6 @@ const CardProduct = ({ data }) => {
         </Link>
         <div className="description_product">
           <h3>{data.name}</h3>
-          {/* <p>Lorem ipsum dolor sit amet</p> */}
         </div>
       </Col>
     </Row>
