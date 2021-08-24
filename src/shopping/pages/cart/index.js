@@ -1,4 +1,12 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 import LayoutShopping from "../../components/Layout";
 import { Button, InputNumber } from "antd";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,9 +18,9 @@ import "../home/style.css";
 import "../../../shopping/styles/product.css";
 import logo_header from "../../img/hinhnenpet.jpg";
 import Checkout from "./Checkout";
+
 const CartShopping = () => {
   const productCarts = useSelector((state) => state.reducerCart.shoppingCart);
-
   const dispatch = useDispatch();
   // const [qty, setNumberQty] = useState([]);
   const getTotal = () => {
@@ -28,24 +36,6 @@ const CartShopping = () => {
       return result;
     }
   };
-
-  // const handlechangeQty = (e) => {
-  //   console.log(e.target.value);
-  // };
-  if (productCarts.length === 0) {
-    return (
-      <LayoutShopping>
-        <img
-          src={logo_header}
-          alt="Error_image"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
-        <h1 style={{ textAlign: "center" }}>
-          Bạn chưa có sản phẩm trong giỏ hàng
-        </h1>
-      </LayoutShopping>
-    );
-  }
   return (
     <LayoutShopping>
       <div className="container_image_header">
@@ -55,127 +45,86 @@ const CartShopping = () => {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </div>
-      <div className="Shopping_cart">
-        <Row>
-          <Col span={20} offset={2}>
-            <Row style={{ display: "flex", justifyContent: "space-around" }}>
-              <Col>
-                <h6>PRODUCTS</h6>{" "}
-              </Col>
-              <Col>
-                <h6>NAME</h6>{" "}
-              </Col>
-              <Col>
-                <h6>PRICE</h6>
-              </Col>
-              <Col>
-                <h6>QTY</h6>
-              </Col>
-              <Col></Col>
-              <Col></Col>
-            </Row>
-            {productCarts.map((item, index) => (
-              <div key={index}>
-                <Row>
-                  <div className="border_bottom"></div>
-                </Row>
-                <Row style={{ marginTop: 10, justifyContent: "space-around" }}>
-                  <Col>
-                    <img
-                      src={item.shoppingCart.image}
-                      alt="error"
-                      style={{
-                        height: 168,
-                        objectFit: "cover",
-                        borderRadius: "5%",
-                      }}
-                    />
-                  </Col>
-                  <Col
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <h5>{item.shoppingCart.name}</h5>
-                  </Col>
-                  <Col
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span className="price">
-                      <small>
-                        <NumberFormat
-                          style={{ fontSize: 20 }}
-                          value={item.shoppingCart.price}
-                          displayType={"text"}
-                          thousandSeparator={true}
-                          suffix="₫"
-                        />
-                      </small>
-                    </span>
-                  </Col>
-                  <Col
-                    style={{
-                      width: 139,
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <InputNumber
-                      min={1}
-                      max={30}
-                      value={item.shoppingCart.quantity}
-                      onChange={(value) => {
-                        dispatch(
-                          changeQuantityCartAction(value, item.shoppingCart.id)
-                        );
-                      }}
-                    />
-                  </Col>
-                  <Col
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      width: 156,
-                    }}
-                  >
-                    <span className="price">
+      <Row>
+        <Col sm={24}>
+          <TableContainer component={Paper}>
+            <Table aria-label="simple table" sm={12}>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Image</TableCell>
+                  <TableCell>Name</TableCell>
+                  <TableCell>Price</TableCell>
+                  <TableCell>Quantity</TableCell>
+                  <TableCell></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {productCarts.map((item, key) => (
+                  <TableRow key={key} sm={12}>
+                    <TableCell>
+                      <img
+                        src={item.shoppingCart.image}
+                        alt="error"
+                        style={{
+                          height: 168,
+                          objectFit: "cover",
+                          borderRadius: "5%",
+                        }}
+                      />
+                    </TableCell>
+                    <TableCell>{item.shoppingCart.name}</TableCell>
+                    <TableCell>
+                      <NumberFormat
+                        style={{ fontSize: 20 }}
+                        value={item.shoppingCart.price}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        suffix="₫"
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <InputNumber
+                        min={1}
+                        max={30}
+                        value={item.shoppingCart.quantity}
+                        onChange={(value) => {
+                          dispatch(
+                            changeQuantityCartAction(
+                              value,
+                              item.shoppingCart.id
+                            )
+                          );
+                        }}
+                      />
+                    </TableCell>
+                    <TableCell>
                       <Button
                         type="dashed"
                         onClick={() =>
                           dispatch(removetCartAction(item.shoppingCart.id, 1))
                         }
                       >
-                        Xóa{" "}
+                        Xóa
                       </Button>
-                    </span>
-                  </Col>
-                  <Col style={{ display: "flex", alignItems: "center" }}></Col>
-                </Row>
-              </div>
-            ))}
-          </Col>
-        </Row>
-      </div>
-      <div style={{ clear: "both" }}></div>
-      {getTotal() > 0 && (
-        <h5 style={{ float: "right" }}>
-          <NumberFormat
-            value={getTotal()}
-            displayType={"text"}
-            thousandSeparator={true}
-            suffix=" ₫"
-            prefix="Tổng Cộng: "
-          />
-        </h5>
-      )}
-      {/* Chỗ này import component checkout nhé cu phát */}
-      {/* https://ant.design/components/form/ */}
-      <Checkout />
-      <div style={{ clear: "both" }}></div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          {getTotal() > 0 && (
+            <h5 style={{ float: "right" }}>
+              <NumberFormat
+                value={getTotal()}
+                displayType={"text"}
+                thousandSeparator={true}
+                suffix=" ₫"
+                prefix="Tổng Cộng: "
+              />
+            </h5>
+          )}
+        </Col>
+      </Row>
     </LayoutShopping>
   );
 };

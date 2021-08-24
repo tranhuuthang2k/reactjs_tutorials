@@ -22,7 +22,7 @@ const HeaderShopping = () => {
         <div className="menu_icon">
           <ul>
             <li>HOME</li>
-            <li>PAGES</li>
+            <li>CATEGORY</li>
           </ul>
           <div className="icon">
             <div className="icon_item">

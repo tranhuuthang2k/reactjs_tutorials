@@ -7,7 +7,7 @@ import { Image } from "antd";
 import "../../../styles/product.css";
 const CardProduct = ({ data }) => {
   return (
-    <Row>
+    <Row sm={12} md={6} xs={2}>
       <Col
         span={24}
         style={{
