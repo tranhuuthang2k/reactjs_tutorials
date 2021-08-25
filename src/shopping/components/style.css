@@ -1,3 +1,19 @@
+body {
+  background: #fff;
+  font-weight: normal;
+  position: relative;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+}
+a {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  text-decoration: none !important;
+  color: #141414;
+}
 #components-layout-demo-top-side-2 .logo {
   float: left;
   width: 120px;
@@ -23,7 +39,7 @@
   border-bottom: 1px solid white;
   box-shadow: 0 0 5px rgb(0 0 0 / 20%);
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
   width: 100%;
 }
 .container_header_logo {

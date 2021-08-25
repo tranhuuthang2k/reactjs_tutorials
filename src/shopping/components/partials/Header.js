@@ -7,11 +7,40 @@ import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from "@material-ui/icons/Search";
 import Badge from "@material-ui/core/Badge";
+import { makeStyles } from "@material-ui/core/styles";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+const useStyles = makeStyles((theme) => ({
+  list_category: {
+    borderBottom: "1px solid #ebebeb",
+  },
+  dropdown: {
+    position: "absolute",
+    top: "73px",
+    right: 0,
+    left: 0,
+    zIndex: 1,
+    width: "200px",
+    padding: theme.spacing(1),
+    boxShadow: "0 0 5px rgb(0 0 0 / 20%)",
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
+
 const { Header } = Layout;
 const HeaderShopping = () => {
   const numberCart = useSelector(
     (state) => state.reducerCart.shoppingCart
   ).length;
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+  };
+
+  const handleClickAway = () => {
+    setOpen(false);
+  };
   return (
     <Header className="container_header">
       <div className="container_header_logo">
@@ -21,9 +50,34 @@ const HeaderShopping = () => {
 
         <div className="menu_icon">
           <ul>
-            <li>HOME</li>
-            <li>CATEGORY</li>
+            <li>
+              <a href="/">HOME</a>
+            </li>
+            <li>
+              <ClickAwayListener onClickAway={handleClickAway}>
+                <div style={{ position: "relative" }}>
+                  <span onClick={handleClick}>CATEGORY</span>
+                  {open ? (
+                    <ul
+                      className={classes.dropdown}
+                      style={{ flexDirection: "column" }}
+                    >
+                      <li className={classes.list_category}>
+                        <a href="/category/husky">Chó Husky</a>
+                      </li>
+                      <li className={classes.list_category}>
+                        <a href="/category/corgi">Chó Corgi</a>
+                      </li>
+                      <li>
+                        <a href="/category/samoyed">Chó Samoyed</a>
+                      </li>
+                    </ul>
+                  ) : null}
+                </div>
+              </ClickAwayListener>
+            </li>
           </ul>
+
           <div className="icon">
             <div className="icon_item">
               <PersonOutlineIcon style={{ fontSize: 25 }} />

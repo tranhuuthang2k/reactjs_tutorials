@@ -14,13 +14,15 @@ h3 {
 p {
   margin: 0;
 }
-.container_product:hover .Image {
-  transform: scale(1.2);
-}
+
 .container_product:hover .backgroud_hidden {
   transform: scale(1.2);
+  transition: all 0.5s;
 }
-
+.container_product:hover .Image {
+  transform: scale(1.2);
+  transition: all 0.5s;
+}
 .description_product h3 {
   font-size: 18px;
   padding-top: 20px;

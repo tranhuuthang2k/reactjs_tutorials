@@ -5,7 +5,6 @@ import FooterShopping from "./partials/Footer";
 import "./style.css";
 const { Content } = Layout;
 const LayoutShopping = (props) => {
-  console.log(props);
   return (
     <Layout>
       <HeaderShopping />

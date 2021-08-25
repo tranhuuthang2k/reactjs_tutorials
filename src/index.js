@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 // su dung css antd cho toan bo ung dung
 import "antd/dist/antd.css";
+
 // import App from "./football/App.js";
 // import App from "./corona/app";
 // import App from "./theme/App";

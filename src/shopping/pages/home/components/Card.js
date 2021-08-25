@@ -3,6 +3,7 @@ import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import slugify from "react-slugify";
 import NumberFormat from "react-number-format";
+
 import { Image } from "antd";
 import "../../../styles/product.css";
 const CardProduct = ({ data }) => {
@@ -24,7 +25,10 @@ const CardProduct = ({ data }) => {
               className="Image"
             />
             <div className="backgroud_hidden"></div>
-            <span className="Price">
+            <span
+              className="Price"
+              style={{ fontSize: "18px", fontWeight: "bold", color: "black" }}
+            >
               <NumberFormat
                 value={data.price}
                 displayType={"text"}
@@ -41,4 +45,4 @@ const CardProduct = ({ data }) => {
     </Row>
   );
 };
-export default React.memo(CardProduct);
+export default CardProduct;

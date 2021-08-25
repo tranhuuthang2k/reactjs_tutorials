@@ -133,7 +133,7 @@ const DetailShopping = () => {
       )}
       {dataDetail.cate_id === "corgi" && <TopSelling />}
       {dataDetail.cate_id === "husky" && <Featured />}
-      {dataDetail.cate_id === "latest" && <Lastest />}
+      {dataDetail.cate_id === "samoyed" && <Lastest />}
     </LayoutShopping>
   );
 };

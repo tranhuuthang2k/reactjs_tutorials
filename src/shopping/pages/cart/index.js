@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -17,12 +16,19 @@ import NumberFormat from "react-number-format";
 import "../home/style.css";
 import "../../../shopping/styles/product.css";
 import logo_header from "../../img/hinhnenpet.jpg";
-import Checkout from "./Checkout";
-
+// s
 const CartShopping = () => {
   const productCarts = useSelector((state) => state.reducerCart.shoppingCart);
   const dispatch = useDispatch();
   // const [qty, setNumberQty] = useState([]);
+
+  React.useEffect(() => {
+    window.scroll({
+      bottom: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
   const getTotal = () => {
     // eslint-disable-next-line no-lone-blocks
     {
@@ -36,6 +42,20 @@ const CartShopping = () => {
       return result;
     }
   };
+  if (productCarts.length === 0) {
+    return (
+      <LayoutShopping>
+        <img
+          src={logo_header}
+          alt="Error_image"
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+        <h5 style={{ textAlign: "center" }}>
+          Bạn chưa có sản phẩm trong giỏ hàng
+        </h5>
+      </LayoutShopping>
+    );
+  }
   return (
     <LayoutShopping>
       <div className="container_image_header">

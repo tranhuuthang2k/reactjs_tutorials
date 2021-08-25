@@ -5,6 +5,8 @@ import { Col, Row, Skeleton } from "antd";
 import { getDataProductLatest } from "../../../reselect/reselect";
 import CardProduct from "./Card";
 import { helpers } from "../../../helpers/common";
+import { Link } from "react-router-dom";
+
 const Latest = () => {
   const { latest } = useSelector(
     createStructuredSelector({
@@ -17,14 +19,30 @@ const Latest = () => {
   return (
     <Row style={{ margin: "30px 0px" }}>
       <Col span={24}>
-        <h3 style={{ textAlign: "center", fontSize: 25 }}> Latest</h3>
+        <h3 style={{ textAlign: "center", fontSize: 25 }}> SAMOYED</h3>
         <Row>
           {latest.map((item, key) => (
-            <Col sm={12} md={6} xs={12} key={key}>
-              <CardProduct data={item} />
-            </Col>
+            <React.Fragment key={"product" + item.id}>
+              {key < 4 && (
+                <Col sm={12} md={6} xs={12} key={key}>
+                  <CardProduct data={item} />
+                </Col>
+              )}
+            </React.Fragment>
           ))}
         </Row>
+        <Link to={`/category/samoyed`}>
+          <h5
+            style={{
+              textAlign: "center",
+              color: "green",
+              marginTop: "10px",
+              fontSize: "15px",
+            }}
+          >
+            Xem Thêm
+          </h5>
+        </Link>
       </Col>
     </Row>
   );
