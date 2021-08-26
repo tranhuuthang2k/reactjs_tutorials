@@ -16,6 +16,7 @@ import NumberFormat from "react-number-format";
 import "../home/style.css";
 import "../../../shopping/styles/product.css";
 import logo_header from "../../img/hinhnenpet.jpg";
+import Checkout from "./Checkout";
 // s
 const CartShopping = () => {
   const productCarts = useSelector((state) => state.reducerCart.shoppingCart);
@@ -42,6 +43,7 @@ const CartShopping = () => {
       return result;
     }
   };
+
   if (productCarts.length === 0) {
     return (
       <LayoutShopping>
@@ -50,6 +52,7 @@ const CartShopping = () => {
           alt="Error_image"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
+
         <h5 style={{ textAlign: "center" }}>
           Bạn chưa có sản phẩm trong giỏ hàng
         </h5>
@@ -65,6 +68,7 @@ const CartShopping = () => {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </div>
+
       <Row>
         <Col sm={24}>
           <TableContainer component={Paper}>
@@ -92,7 +96,9 @@ const CartShopping = () => {
                         }}
                       />
                     </TableCell>
-                    <TableCell>{item.shoppingCart.name}</TableCell>
+                    <TableCell>
+                      <h5>{item.shoppingCart.name}</h5>
+                    </TableCell>
                     <TableCell>
                       <NumberFormat
                         style={{ fontSize: 20 }}
@@ -133,18 +139,20 @@ const CartShopping = () => {
             </Table>
           </TableContainer>
           {getTotal() > 0 && (
-            <h5 style={{ float: "right" }}>
+            <h5 style={{ float: "right", margin: 20 }}>
               <NumberFormat
                 value={getTotal()}
                 displayType={"text"}
                 thousandSeparator={true}
                 suffix=" ₫"
-                prefix="Tổng Cộng: "
+                prefix="TOTAL COST: "
               />
             </h5>
           )}
         </Col>
       </Row>
+
+      <Checkout />
     </LayoutShopping>
   );
 };

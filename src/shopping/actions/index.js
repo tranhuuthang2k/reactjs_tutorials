@@ -1,53 +1,53 @@
-import * as types from "./types";
+import * as types from './types';
 export const getDataProducts = () => ({
-  type: types.Get_DATA_PRODUCT,
+  type: types.Get_DATA_PRODUCT
 });
 //sagas
-export const startGetProduct = (start) => ({
+export const startGetProduct = start => ({
   type: types.START_GET_DATA_PRODUCT,
-  start,
+  start
 });
 
-export const getProductSuccess = (data) => ({
+export const getProductSuccess = data => ({
   type: types.GET_DATA_SUCESS,
-  data,
+  data
 });
 
-export const getProductFail = (error) => ({
+export const getProductFail = error => ({
   type: types.GET_DATA_FAIL,
-  error,
+  error
 });
 
-export const stopGetProduct = (stop) => ({
+export const stopGetProduct = stop => ({
   type: types.STOP_GET_DATA_PRODUCT,
-  stop,
+  stop
 });
 // ACTION DETAILS
 
-export const getDataProductById = (id) => ({
+export const getDataProductById = id => ({
   type: types.GET_DATA_PRODUCT_BY_ID,
-  id,
+  id
 });
 
 //sagas
-export const startGetProductById = (start) => ({
+export const startGetProductById = start => ({
   type: types.START_GET_DATA_PRODUCT,
-  start,
+  start
 });
 
-export const getProductByIdSuccess = (data) => ({
+export const getProductByIdSuccess = data => ({
   type: types.GET_DATA_SUCESS_BY_ID,
-  data,
+  data
 });
 
-export const getProductByIdFail = (error) => ({
+export const getProductByIdFail = error => ({
   type: types.GET_DATA_FAIL_BY_ID,
-  error,
+  error
 });
 
-export const stopGetProductById = (stop) => ({
+export const stopGetProductById = stop => ({
   type: types.STOP_GET_DATA_PRODUCT_BY_ID,
-  stop,
+  stop
 });
 
 // SHOPPING CART
@@ -55,35 +55,73 @@ export const stopGetProductById = (stop) => ({
 export const incrementCartAction = (number, data) => ({
   type: types.INCREMENT_CART,
   number: number,
-  data: data,
+  data: data
 });
 export const decrementCartAction = () => ({
-  type: types.DECREMENT_CART,
+  type: types.DECREMENT_CART
 });
 
 export const changeQuantityCartAction = (quantity, productId) => ({
   type: types.CHANGE_QUANTITY_CART,
   quantity: quantity,
-  productId: productId,
+  productId: productId
 });
 export const removetCartAction = (productId, quantity) => ({
   type: types.REMOVE_CART,
-  productId: productId,
+  productId: productId
+});
+export const ClearCart = () => ({
+  type: types.CLEAR_CART
 });
 
 // LOGIN
 export const loginRequestAction = (email, password) => ({
   type: types.LOGIN_REQUEST,
   email: email,
-  password: password,
+  password: password
 });
 
-export const startStatusLoginAction = (loading) => ({
+export const startStatusLoginAction = loading => ({
   type: types.START_STATUS_LOGIN,
-  loading: loading,
+  loading: loading
 });
 
-export const loginFail = (error) => ({
+export const loginFail = error => ({
   type: types.LOGIN_FAIL,
-  error: error,
+  error: error
+});
+
+// CHECKOUT
+export const Checkoutloading = start => ({
+  type: types.CHECKOUT_LOADING,
+  start
+});
+
+export const Checkout = (
+  ID,
+  Firstname,
+  address,
+  companyname,
+  country,
+  email,
+  lastname,
+  phone,
+  towncity,
+  cart,
+  date,
+  totalprice
+) => ({
+  type: types.CHECKOUT_SUCCESS,
+  ID,
+  Firstname,
+  address,
+  companyname,
+  country,
+  email,
+  lastname,
+  phone,
+  towncity,
+  cart,
+  date,
+  totalprice
 });

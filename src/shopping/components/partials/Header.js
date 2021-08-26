@@ -1,41 +1,41 @@
-import React from "react";
-import { Layout, Image } from "antd";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import logo from "../../img/pet-shop.jpg";
-import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import SearchIcon from "@material-ui/icons/Search";
-import Badge from "@material-ui/core/Badge";
-import { makeStyles } from "@material-ui/core/styles";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-const useStyles = makeStyles((theme) => ({
+import React from 'react';
+import { Layout, Image } from 'antd';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import logo from '../../img/pet-shop.jpg';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import SearchIcon from '@material-ui/icons/Search';
+import Badge from '@material-ui/core/Badge';
+import { makeStyles } from '@material-ui/core/styles';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+const useStyles = makeStyles(theme => ({
   list_category: {
-    borderBottom: "1px solid #ebebeb",
+    borderBottom: '1px solid #ebebeb'
   },
   dropdown: {
-    position: "absolute",
-    top: "73px",
+    position: 'absolute',
+    top: '73px',
     right: 0,
     left: 0,
     zIndex: 1,
-    width: "200px",
+    width: '200px',
     padding: theme.spacing(1),
-    boxShadow: "0 0 5px rgb(0 0 0 / 20%)",
-    backgroundColor: theme.palette.background.paper,
-  },
+    boxShadow: '0 0 5px rgb(0 0 0 / 20%)',
+    backgroundColor: theme.palette.background.paper
+  }
 }));
 
 const { Header } = Layout;
 const HeaderShopping = () => {
   const numberCart = useSelector(
-    (state) => state.reducerCart.shoppingCart
+    state => state.reducerCart.shoppingCart
   ).length;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
-    setOpen((prev) => !prev);
+    setOpen(prev => !prev);
   };
 
   const handleClickAway = () => {
@@ -51,16 +51,16 @@ const HeaderShopping = () => {
         <div className="menu_icon">
           <ul>
             <li>
-              <a href="/">HOME</a>
+              <Link to="/">HOME</Link>
             </li>
             <li>
               <ClickAwayListener onClickAway={handleClickAway}>
-                <div style={{ position: "relative" }}>
+                <div style={{ position: 'relative' }}>
                   <span onClick={handleClick}>CATEGORY</span>
                   {open ? (
                     <ul
                       className={classes.dropdown}
-                      style={{ flexDirection: "column" }}
+                      style={{ flexDirection: 'column' }}
                     >
                       <li className={classes.list_category}>
                         <a href="/category/husky">Chó Husky</a>
@@ -75,6 +75,10 @@ const HeaderShopping = () => {
                   ) : null}
                 </div>
               </ClickAwayListener>
+            </li>
+            <li>
+              {/* <a href="/order">ORDER</a> */}
+              <Link to="/order">ORDER</Link>
             </li>
           </ul>
 
