@@ -39,7 +39,7 @@ a {
   border-bottom: 1px solid white;
   box-shadow: 0 0 5px rgb(0 0 0 / 20%);
   position: fixed;
-  z-index: 9999;
+  z-index: 1;
   width: 100%;
 }
 .container_header_logo {
