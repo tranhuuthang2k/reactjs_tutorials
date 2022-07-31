@@ -18,7 +18,7 @@ const FeatureComponent = () => {
   return (
     <Row style={{ margin: "30px 0px" }}>
       <Col span={24}>
-        <h3 style={{ textAlign: "center", fontSize: 25 }}> HUSKY</h3>
+        <h3 style={{ textAlign: "center", fontSize: 25 }}> HUSKY </h3>
         <Row>
           {featured.map((item, key) => (
             <React.Fragment key={"product" + item.id}>
